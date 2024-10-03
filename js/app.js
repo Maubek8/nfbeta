@@ -1,12 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const criarTabelaBtn = document.getElementById("criarTabela");
-    const imprimirTabelaBtn = document.getElementById("imprimirTabela");
 
     criarTabelaBtn.addEventListener("click", criarTabela);
-    imprimirTabelaBtn.addEventListener("click", function() {
-        atualizarTabelaParaImpressao(); // Atualiza a tabela com os valores de entrada
-        imprimirTabela(); // Depois imprime a tabela
-    });
 
     function criarTabela() {
         const alunosInput = document.getElementById("alunosRAs");
@@ -32,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        // Cabeçalho da tabela (com a possibilidade de editar o nome das provas)
+        // Cabeçalho da tabela
         let cabecalho = '<tr><th>Nome</th>';
         for (let i = 0; i < numProvas; i++) {
             cabecalho += `<th contenteditable="true">Prova ${i + 1}</th>`;
@@ -68,33 +63,5 @@ document.addEventListener("DOMContentLoaded", function() {
             total += parseFloat(nota.value) || 0;
         });
         row.querySelector('.total').textContent = total.toFixed(2);
-    }
-
-    // Função para atualizar a tabela substituindo os inputs pelos valores antes de imprimir
-    function atualizarTabelaParaImpressao() {
-        const linhas = document.querySelectorAll("#tabelaAlunos tr");
-        linhas.forEach(linha => {
-            const celulas = linha.querySelectorAll("td");
-            celulas.forEach(celula => {
-                const input = celula.querySelector("input");
-                if (input) {
-                    const valor = input.value || "0"; // Coleta o valor do input
-                    celula.textContent = valor; // Substitui o input pelo valor
-                }
-            });
-        });
-    }
-
-    // Função para imprimir a tabela
-    function imprimirTabela() {
-        const tabelaHtml = document.getElementById("tabelaVisualizacao").innerHTML;
-        const printWindow = window.open('', '', 'width=800,height=600');
-        printWindow.document.write('<html><head><title>Imprimir Tabela</title>');
-        printWindow.document.write('<style>table {width: 100%; border-collapse: collapse;} th, td {border: 1px solid #ccc; padding: 5px; font-size: 12px; text-align: left;} button {margin-top: 20px; padding: 10px;}</style>');
-        printWindow.document.write('</head><body>');
-        printWindow.document.write(tabelaHtml);
-        printWindow.document.write('<button onclick="window.print()">Imprimir</button>');  // Apenas um botão de impressão
-        printWindow.document.write('</body></html>');
-        printWindow.document.close();
     }
 });
