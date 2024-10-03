@@ -7,16 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
         slides[index].classList.add('active');
     }
 
-    document.getElementById('nextBtn').addEventListener('click', function() {
+    function nextSlide() {
         currentSlide = (currentSlide + 1) % slides.length;
         showSlide(currentSlide);
-    });
+    }
 
-    document.getElementById('prevBtn').addEventListener('click', function() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
-    });
-
-    // Exibir o primeiro slide
-    showSlide(currentSlide);
+    // Iniciar carrossel automático
+    showSlide(currentSlide);  // Exibe o primeiro slide
+    setInterval(nextSlide, 4000); // Muda de slide a cada 4 segundos
 });
