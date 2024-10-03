@@ -1,31 +1,107 @@
-/* Carousel CSS */
-.carousel-container {
-    position: fixed;
-    top: 50px;
-    right: 0;
-    width: 300px;
-    height: 300px; /* Aumenta o tamanho vertical */
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0fdf5; /* Verde claro */
+    color: #333;
+    margin: 0;
     padding: 20px;
-    overflow: hidden;
-    font-size: 24px; /* Aumenta o tamanho da fonte */
 }
 
-.carousel-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.carousel-slide {
-    display: none;
-}
-
-.carousel-slide.active {
-    display: block;
-    height: 100%;
+header {
     text-align: center;
+    position: relative;
+}
+
+header h1 {
+    color: #2c7a7b;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.powered-by {
+    position: absolute;
+    top: 130px;
+    right: 10px;
+    font-size: 12px;
+    color: #888;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+textarea, input[type="number"], input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #48bb78;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #38a169;
+}
+
+#tabelaVisualizacao, #gabaritoVisualizacao {
+    margin-top: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+th {
+    background-color: #e6fffa; /* Fundo claro para o cabeçalho */
+    color: #2c7a7b;
+}
+
+input[type="number"].nota {
+    width: 60px; /* Largura fixa para campos de nota */
+    padding: 5px;
+}
+
+.total {
+    font-weight: bold;
+    color: #2c7a7b;
+}
+
+#salvarTabela, #salvarGabarito {
+    margin-top: 20px;
 }
